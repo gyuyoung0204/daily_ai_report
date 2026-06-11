@@ -1,0 +1,8 @@
+﻿2026-06-11 15:27:28 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-11 15:27:28 | [INFO] ??HTML generation completed: C:\tmpfile\ai_report\scripts\..\daily_ai_digest.html
+2026-06-11 15:27:28 | [ERROR] ??Error: A parameter cannot be found that matches parameter name 'AsUTC'.
+2026-06-11 15:27:28 | [ERROR] ========== Generation Failed ==========
+2026-06-11 15:27:48 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-11 15:27:48 | [INFO] ??HTML generation completed: C:\tmpfile\ai_report\scripts\..\daily_ai_digest.html
+2026-06-11 15:27:48 | [INFO] ??Cache updated
+2026-06-11 15:27:48 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
