@@ -1,21 +1,23 @@
 ---
 name: issue-processor
-description: Process GitHub Issues automatically. Use this skill to handle project tasks, track progress, and manage development workflow. Reads issue descriptions, executes planned tasks, updates progress in comments, and closes completed issues. Perfect for automating project management and tracking development milestones.
+description: Automatically solve GitHub Issues by implementing fixes, testing changes, committing code, and closing issues. Reads issue requirements, generates solutions, tests implementations, commits to GitHub, and updates issue status. Part of daily self-healing workflow - solves issues until zero remain.
 ---
 
-# GitHub Issue Processor
+# 🔧 Issue Auto-Solver
 
-Automatically process GitHub Issues following their implementation plans.
+GitHub Issues를 **자동으로 분석, 해결, 테스트, 커밋**합니다.
 
 ## What This Skill Does
 
-This skill orchestrates the complete issue lifecycle:
+This skill solves issues automatically:
 
-1. **Read Issues** - Fetches open issues from repository
-2. **Parse Plans** - Extracts implementation plan from issue comments
-3. **Execute Tasks** - Implements features/fixes according to plan
-4. **Update Progress** - Posts progress updates as comments
-5. **Close Issues** - Marks completed issues as done
+1. **Read Issues** - Fetches all open issues
+2. **Analyze Requirements** - Understands what needs to be fixed
+3. **Generate Solutions** - Creates implementation code
+4. **Test Changes** - Validates solutions work correctly
+5. **Commit & Push** - Commits changes to GitHub
+6. **Close Issues** - Marks completed issues as done
+7. **Update Progress** - Posts solution details as comments
 
 ## When to Use This Skill
 

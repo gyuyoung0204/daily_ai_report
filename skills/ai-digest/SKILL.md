@@ -1,20 +1,22 @@
 ---
 name: ai-digest
-description: Generate daily AI/IT news digest with developer insights. Use this skill whenever the user asks for AI news summaries, daily tech updates, developer insights, or wants to track latest AI/ML breakthroughs. Automatically collects from web sources, removes duplicates, and provides actionable insights for developers. Generates beautiful HTML reports ready to share.
+description: Generate daily AI/IT news digest AND auto-detect project issues. Collects news, analyzes weaknesses in current implementation, generates insights, creates HTML report, AND automatically creates GitHub Issues for improvements found. Part of daily self-healing workflow.
 ---
 
-# AI/IT Daily News Digest
+# 🤖 AI/IT Daily News Digest + Issue Detection
 
-Automatically generate a daily digest of AI and IT news with developer-focused insights.
+자동으로 뉴스를 생성하면서 **동시에 프로젝트의 약점을 발견하고 GitHub Issue로 등록**합니다.
 
 ## What This Skill Does
 
-This skill creates a beautiful, organized daily digest of AI/IT news and technology trends. It:
+This skill creates a beautiful digest AND improves the project. It:
 
 1. **Collects News** - Searches web for latest AI/IT news and breakthroughs
-2. **Removes Duplicates** - Filters out repeated stories across sources
-3. **Generates Insights** - Adds developer-focused analysis (what to do now, what to monitor, etc.)
-4. **Creates HTML Report** - Produces a professional, shareable digest
+2. **Analyzes Current State** - Reviews project implementation status
+3. **Detects Weaknesses** - Finds gaps, limitations, improvement opportunities
+4. **Creates GitHub Issues** - Automatically registers found issues with detailed plans
+5. **Generates Insights** - Adds developer-focused analysis
+6. **Creates HTML Report** - Produces a professional, shareable digest
 
 ## When to Use This Skill
 
