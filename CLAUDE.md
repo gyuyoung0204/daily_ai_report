@@ -1,10 +1,10 @@
 # 👨‍💻 개발 가이드
 
-## 현재 상태: 70% 완성
+## 현재 상태: 40% 완성
 
-**완료:** HTML UI ✅ | PowerShell 스크립트 ✅ | GitHub 통합 ✅ | Claude 스킬 ✅
+**완료:** /ai-digest 스킬 ✅ | GitHub Actions ✅ (2/5 Issues)
 
-**미완료:** 실시간 뉴스 API ❌ | 이메일 발송 ❌ | 고급 중복 제거 ❌
+**미완료:** 실시간 뉴스 API ❌ | 이메일 발송 ❌ | 중복 제거 개선 ❌ (3/5 Issues)
 
 ---
 
@@ -25,7 +25,8 @@ daily_ai_report/
 │   └── auto-issue-update.yml       # GitHub Actions
 └── skills/
     ├── ai-digest/SKILL.md
-    └── issue-processor/SKILL.md
+    ├── issue-processor/SKILL.md
+    └── documentation/SKILL.md      # 문서 자동화 (신규)
 ```
 
 ---
