@@ -1,0 +1,21 @@
+# Local settings and secrets
+.claude/settings.local.json
+.env
+*.local
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*~
