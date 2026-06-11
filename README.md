@@ -1,89 +1,113 @@
 # 🤖 Daily AI/IT News Digest
 
-매일 아침 AI·IT 업계의 최신 동향을 정리해주는 자동화 시스템
+> AI/IT 업계 최신 뉴스를 매일 아침 자동으로 정리해주는 시스템
 
-## 📋 특징
+[💡 프로젝트 비전은 SOUL.md를 보세요](SOUL.md)
 
-✨ **매일 아침 자동 생성** - 설정된 시간에 자동으로 최신 뉴스 수집  
-⭐ **우선순위 표시** - 중요도에 따른 항목 분류  
-🏷️ **카테고리 분류** - 💰 비즈니스, 🤖 AI, 🔧 인프라 등  
-🔗 **원문 링크** - 각 뉴스마다 출처 링크 포함  
-📱 **모바일 친화적** - 반응형 디자인으로 모든 기기에 최적화  
+---
 
-## 📁 파일 구조
+## ✨ 특징
 
-```
-daily_ai_report/
-├── README.md                    # 이 파일
-├── daily_ai_digest.html         # 메인 뉴스 다이제스트 (HTML)
-├── scripts/
-│   ├── generate_digest.ps1      # 다이제스트 생성 스크립트 (PowerShell)
-│   └── schedule_daily_task.ps1  # Windows Task Scheduler 설정 스크립트
-└── logs/
-    └── digest_log.txt           # 생성 로그 기록
-```
+- ⚡ **매일 자동** - 아침 09:00에 자동 생성
+- 🎯 **정보 집약** - 중요도로 우선순위 표시
+- 🏷️ **분류 정렬** - 💰 비즈니스, 🤖 AI, 🔧 인프라
+- 🔗 **원문 링크** - 각 뉴스마다 출처 포함
+- 📱 **모바일 최적** - 반응형 디자인
+- 🌍 **다국어** - 한글/영문 완벽 지원
+
+---
+
+## 📊 현재 상태
+
+### 완료된 기능 (70%)
+
+| 항목 | 상태 | 설명 |
+|------|------|------|
+| HTML 다이제스트 | ✅ | 아름다운 UI 완성 |
+| PowerShell 스크립트 | ✅ | 자동화 기반 준비 |
+| GitHub 통합 | ✅ | Issues, Actions 설정 |
+| Claude 스킬 | ✅ | /ai-digest, /issue-processor |
+
+### 미완료 기능
+
+| 항목 | 진행 | 설명 |
+|------|------|------|
+| 실시간 뉴스 API | ❌ | 샘플 데이터만 사용 중 |
+| 이메일 발송 | ❌ | SMTP 설정 필요 |
+| 고급 중복 제거 | ❌ | TF-IDF 유사도 필요 |
+
+---
 
 ## 🚀 빠른 시작
 
-### 1️⃣ HTML 다이제스트 보기
+### 1️⃣ HTML 보기
 ```bash
 # 브라우저에서 열기
 open daily_ai_digest.html
 ```
 
-### 2️⃣ 매일 자동으로 생성되도록 설정 (Windows)
+### 2️⃣ 수동 생성 (테스트용)
 ```powershell
-# PowerShell을 관리자 권한으로 실행한 후
-.\scripts\schedule_daily_task.ps1
-```
-
-### 3️⃣ 수동으로 다이제스트 생성
-```powershell
+# PowerShell에서 실행
 .\scripts\generate_digest.ps1
 ```
 
-## 📊 뉴스 구성
+### 3️⃣ 자동화 설정 (Windows)
+```powershell
+# 관리자 권한 PowerShell에서
+.\scripts\schedule_daily_task.ps1
+# → 매일 09:00에 자동 실행됨
+```
 
-- **⭐ 최우선** (빨간 배경): 업계에 가장 큰 영향을 미치는 뉴스
-- **일반 항목** (회색 배경): 주목할 만한 개발사항
+---
 
-각 항목에는 다음이 포함됩니다:
-- 제목
-- 간단한 설명 및 코멘트
-- 원문 링크
-- 카테고리 태그
+## 📁 주요 파일
 
-## 🔧 커스터마이징
+| 파일 | 설명 |
+|------|------|
+| `daily_ai_digest.html` | 생성된 뉴스 페이지 |
+| `scripts/generate_digest.ps1` | 뉴스 수집 및 생성 |
+| `data/news_cache.json` | 뉴스 캐시 (중복 제거) |
+| `logs/digest_log.txt` | 실행 로그 |
 
-### HTML 스타일 변경
-`daily_ai_digest.html` 파일의 `<style>` 섹션 수정
+---
 
-### 뉴스 소스 추가
-`scripts/generate_digest.ps1`의 검색 쿼리 수정
+## 📚 문서
 
-### 자동 실행 시간 변경
-`scripts/schedule_daily_task.ps1`에서 시간 설정 변경
+- **[SOUL.md](SOUL.md)** - 프로젝트 비전과 목표
+- **[CLAUDE.md](CLAUDE.md)** - 개발자 가이드
+- **[GitHub Issues](https://github.com/gyuyoung0204/daily_ai_report/issues)** - 진행 상황
 
-## 📅 업데이트 주기
+---
 
-- **기본 설정**: 매일 아침 09:00 KST
-- 커스터마이징 가능
-
-## 🛠️ 요구사항
+## 🛠️ 시스템 요구사항
 
 - Windows OS (Task Scheduler 사용)
 - PowerShell 5.0+
 - 인터넷 연결
 
-## 📝 라이선스
+---
 
-MIT License
+## 📈 다음 예정
 
-## 👤 작성자
-
-- AI Report System (Automated)
+1. 🔄 **실시간 뉴스 API 연동** - Google News, TechCrunch RSS
+2. 📧 **이메일 자동 발송** - 아침 뉴스를 메일로
+3. 🔍 **중복 제거 개선** - AI 기반 유사도 분석
 
 ---
 
-**마지막 업데이트**: 2026-06-11  
-**다음 업데이트**: 2026-06-12
+## 📞 문제 해결
+
+### 한글이 깨질 때?
+`scripts/generate_digest.ps1`에서 UTF-8 인코딩 확인
+
+### Task Scheduler가 안 될 때?
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+.\scripts\schedule_daily_task.ps1
+```
+
+---
+
+**마지막 업데이트:** 2026-06-11  
+**상태:** 매일 업데이트 중 ✨
