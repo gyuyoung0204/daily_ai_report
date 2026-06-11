@@ -1,4 +1,4 @@
-# Advanced Duplicate Detection using TF-IDF
+﻿# Advanced Duplicate Detection using TF-IDF
 # 뉴스 항목 간 유사도를 분석하여 정교한 중복 제거
 
 param(
@@ -26,8 +26,8 @@ function Get-TfIdfScore {
         }
     }
 
-    # 단어 빈도를 정규화
-    foreach ($word in $tf.Keys) {
+    # 단어 빈도를 정규화 (키 복사본 순회 - 순회 중 수정 시 예외 방지)
+    foreach ($word in @($tf.Keys)) {
         $tf[$word] = $tf[$word] / $words.Count
     }
 
@@ -109,10 +109,3 @@ if ($MyInvocation.InvocationName -ne '.') {
     Write-Host "중복 제거 모듈 로드됨"
     Write-Host "사용: Remove-DuplicateNews -NewsItems `$items -Threshold 0.85"
 }
-
-# Export 함수
-Export-ModuleMember -Function @(
-    'Get-TfIdfScore',
-    'Get-CosineSimilarity',
-    'Remove-DuplicateNews'
-)
