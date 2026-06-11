@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily AI/IT News Digest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .date {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item.priority {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe6e6 100%);
+            border-left-color: #ff6b6b;
+            border-left-width: 6px;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .news-item h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+            line-height: 1.4;
+        }
+
+        .news-item p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .news-item a {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            padding-right: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right center;
+            transition: color 0.3s ease;
+        }
+
+        .news-item a:hover {
+            color: #764ba2;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: #667eea20;
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-right: 8px;
+            margin-top: 8px;
+        }
+
+        .footer {
+            background: #f0f1f3;
+            padding: 20px 30px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+
+        .category-ai { background: #e3f2fd; color: #1976d2; }
+        .category-biz { background: #f3e5f5; color: #7b1fa2; }
+        .category-infra { background: #e0f2f1; color: #00897b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Daily AI/IT Digest</h1>
+            <p>최신 AI·기술 동향 일일 리포트</p>
+            <p class="date">📅 2026년 6월 11일 (수)</p>
+        </div>
+
+        <div class="content">
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">오늘의 주요 뉴스</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">새로운 AI 모델</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$965B</div>
+                    <div class="stat-label">최고 기업 가치평가</div>
+                </div>
+            </div>
+
+            <div class="news-list">
+                <!-- 우선순위 1 -->
+                <div class="news-item priority">
+                    <span class="priority-badge">⭐ 최우선</span>
+                    <h3>Anthropic, $965B 가치평가로 세계 최고 가치 AI 스타트업 등극</h3>
+                    <p>Anthropic이 $65 billion 규모의 Series H 펀딩 라운드를 완료하며, 현재 세계에서 가장 가치있는 AI 스타트업이 되었습니다. 연간 수익이 $47 billion을 넘어섰으며, 6월 2일에 SEC에 S-1을 기밀 제출했습니다. SpaceX(6월 12일), Anthropic, OpenAI 순으로 상장될 예정입니다.</p>
+                    <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-biz">💰 비즈니스</span>
+                        <span class="category-tag category-biz">📈 펀딩</span>
+                    </div>
+                </div>
+
+                <!-- 우선순위 2 -->
+                <div class="news-item priority">
+                    <span class="priority-badge">⭐ 최우선</span>
+                    <h3>Claude Opus 4.8 출시: SWE-bench 88.6% 달성, 병렬 에이전트 지원</h3>
+                    <p>Anthropic의 최신 모델 Claude Opus 4.8이 SWE-bench Verified에서 88.6%의 성능을 기록했습니다. 특히 병렬 서브에이전트 워크플로우를 지원하며, Fast Mode를 통해 2.5배의 속도 향상을 제공합니다. 이는 AI가 보다 복잡한 작업을 독립적으로 수행할 수 있다는 것을 의미합니다.</p>
+                    <a href="https://llm-stats.com/llm-updates" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-ai">🚀 새 모델</span>
+                        <span class="category-tag category-ai">⚡ 성능</span>
+                    </div>
+                </div>
+
+                <!-- 우선순위 3 -->
+                <div class="news-item priority">
+                    <span class="priority-badge">⭐ 최우선</span>
+                    <h3>에이전틱 시스템의 부상: AI가 대화에서 작업 완료로 진화</h3>
+                    <p>2026년 가장 큰 변화는 AI가 단순한 대화형 AI에서 벗어나 연구, 코딩, 고객 지원, 법무, 결제, 상거래 등 다양한 분야에서 자동으로 작업을 완료하는 에이전틱 시스템으로 진화하고 있다는 점입니다. 이는 AI의 실질적 활용 단계로의 전환을 의미합니다.</p>
+                    <a href="https://medium.com/@davidakpovi/ai-news-week-of-june-1-to-june-7-2026-7957940c805a" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-ai">🤖 에이전트</span>
+                        <span class="category-tag category-ai">🔄 트렌드</span>
+                    </div>
+                </div>
+
+                <!-- 우선순위 4 -->
+                <div class="news-item">
+                    <h3>Google Gemma 4 공개: 오픈소스 고급 추론 모델</h3>
+                    <p>Google이 Gemma 4를 공개했습니다. 이 모델 시리즈는 고급 추론과 에이전틱 워크플로우를 위해 특별히 설계되었으며, Apache 2.0 라이선스로 배포됩니다. 이는 개발자들이 더 쉽게 강력한 AI 기능을 자신의 애플리케이션에 통합할 수 있도록 합니다.</p>
+                    <a href="https://llm-stats.com/ai-news" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-ai">🚀 새 모델</span>
+                        <span class="category-tag category-ai">🔓 오픈소스</span>
+                    </div>
+                </div>
+
+                <!-- 우선순위 5 -->
+                <div class="news-item">
+                    <h3>Microsoft MAI 족 공개: 독립적으로 개발된 독점 AI 모델</h3>
+                    <p>Microsoft가 MAI(Microsoft AI) 모델 족을 공개했습니다. 특별한 점은 이 모델들이 OpenAI의 아키텍처 없이 Microsoft에서 완전히 독립적으로 개발되었다는 것입니다. 이는 Microsoft의 AI 자립도를 한층 높이는 중요한 발전입니다.</p>
+                    <a href="https://www.buildfastwithai.com/blogs/ai-news-today-june-8-2026" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-ai">🚀 새 모델</span>
+                        <span class="category-tag category-infra">🔧 인프라</span>
+                    </div>
+                </div>
+
+                <!-- 우선순위 6 -->
+                <div class="news-item">
+                    <h3>Google TurboQuant (ICLR 2026): KV 캐시 메모리 오버헤드 대폭 감소</h3>
+                    <p>Google 연구팀이 ICLR 2026에서 TurboQuant를 발표했습니다. 이 알고리즘은 대규모 AI 모델 실행의 가장 큰 병목 중 하나인 KV 캐시로 인한 메모리 오버헤드를 크게 줄입니다. 이는 더 효율적인 AI 모델 실행을 가능하게 합니다.</p>
+                    <a href="https://blog.mean.ceo/latest-ai-developments-news-june-2026/" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-infra">⚙️ 최적화</span>
+                        <span class="category-tag category-infra">🔧 인프라</span>
+                    </div>
+                </div>
+
+                <!-- 우선순위 7 -->
+                <div class="news-item">
+                    <h3>NVIDIA & SK hynix 장기 파트너십: 차세대 메모리 협력</h3>
+                    <p>NVIDIA와 SK hynix가 다년간 기술 파트너십을 체결했습니다. NVIDIA의 AI 인프라 로드맵과 맞춘 차세대 메모리를 공동 개발합니다. 이는 AI 칩과 메모리 간의 성능 격차를 줄이는 데 중요한 역할을 할 것입니다.</p>
+                    <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-infra">🤝 파트너십</span>
+                        <span class="category-tag category-infra">💾 메모리</span>
+                    </div>
+                </div>
+
+                <!-- 우선순위 8 -->
+                <div class="news-item">
+                    <h3>Google Willow 칩: 양자 컴퓨팅과 AI의 융합</h3>
+                    <p>Google이 I/O 2026에서 양자 컴퓨팅 혁신을 상세히 발표했습니다. Willow 칩과 오류 보정 큐빗의 진전이 강조되었으며, 양자 시스템이 특정 AI 최적화 작업을 극적으로 가속화할 수 있음이 강조되었습니다.</p>
+                    <a href="https://radicaldatascience.wordpress.com/2026/06/04/ai-news-briefs-bulletin-board-for-june-2026/" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-infra">🔬 양자</span>
+                        <span class="category-tag category-infra">🚀 기술</span>
+                    </div>
+                </div>
+
+                <!-- 우선순위 9 -->
+                <div class="news-item">
+                    <h3>글로벌 AI 인프라 투자 $800B 돌파: 자본 집중 현상</h3>
+                    <p>AI 인프라에 대한 자본 투자가 연간 $800 billion을 돌파했습니다. Google의 $80 billion 지분 공개, SoftBank의 $52 billion 유럽 데이터센터 투자 등이 이를 증명합니다. AI는 단순한 기술을 넘어 경제 전체를 재구성하는 핵심 인프라가 되었습니다.</p>
+                    <a href="https://techstartups.com/2026/06/09/top-tech-news-today-june-9-2026/" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-infra">💰 자본</span>
+                        <span class="category-tag category-infra">📊 시장</span>
+                    </div>
+                </div>
+
+                <!-- 우선순위 10 -->
+                <div class="news-item">
+                    <h3>MANGO 시대: Meta, Anthropic, NVIDIA, Google, OpenAI 시장 장악</h3>
+                    <p>업계에서는 "MANGO"라는 용어를 사용하여 Meta, Anthropic, NVIDIA, Google, OpenAI 다섯 기업을 지칭합니다. 이들이 현재 AI 시대의 지배적 플레이어로 떠올랐으며, 각각 서로 다른 분야(소프트웨어, 자본, 칩, 검색/양자, 모델)에서의 경쟁력을 보유하고 있습니다.</p>
+                    <a href="https://techstartups.com/2026/06/09/top-tech-news-today-june-9-2026/" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-biz">🏆 시장</span>
+                        <span class="category-tag category-biz">📈 트렌드</span>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <h3>SpaceX 상장 예정: 6월 12일 첫 AI 시대 IPO</h3>
+                    <p>SpaceX가 6월 12일 상장 예정입니다. SpaceX → Anthropic → OpenAI 순서로 공개될 예정이며, 첫 상장사(SpaceX)의 가격 책정이 다음 상장사들의 벤치마크가 될 것입니다. AI 인프라 비용이 지구를 떠날 미래에 대한 투자자들의 기대가 반영되어 있습니다.</p>
+                    <a href="https://techstartups.com/2026/06/02/top-tech-news-today-june-2-2026/" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-biz">📊 IPO</span>
+                        <span class="category-tag category-biz">🚀 우주</span>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <h3>AI 기후 모델: 물리 기반 데이터와의 결합으로 25배 빠른 예측</h3>
+                    <p>연구팀이 생성형 AI 방식을 물리 기반 데이터와 결합하여 기후 모델을 25배 더 빠르게 실행할 수 있음을 보여주었습니다. 이는 기후 변화 예측과 대응에 혁신적인 영향을 미칠 수 있습니다.</p>
+                    <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-ai">🌍 기후</span>
+                        <span class="category-tag category-ai">🔬 과학</span>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <h3>MycoBCP: 결핵 세포 변화 감지하여 치료제 개발 가속화</h3>
+                    <p>Deep Learning 시스템 MycoBCP가 결핵의 미묘한 세포 변화를 감지하는 데 성공했습니다. 이를 통해 치료제 발견 속도를 크게 높일 수 있게 되어, AI가 의료 분야에서 가치있는 도구로 입증되었습니다.</p>
+                    <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-ai">🏥 의료</span>
+                        <span class="category-tag category-ai">🔬 과학</span>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <h3>Enterprise AI Hardware 혁신: 전력과 냉각 요구사항 재정의</h3>
+                    <p>엔터프라이즈 하드웨어 지형이 AI 요구사항에 의해 재구성되고 있습니다. AI가 하드웨어 성장을 주도하고, 차세대 데이터센터가 전력/냉각 요구사항을 재정의하며, 하이브리드 컴퓨팅이 전략적 필요 요소가 되었습니다.</p>
+                    <a href="https://www.deloitte.com/us/en/insights/industry/technology/technology-media-telecom-outlooks/hardware-consumer-tech-outlook.html" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-infra">🖥️ 하드웨어</span>
+                        <span class="category-tag category-infra">⚡ 에너지</span>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <h3>중국 AI 인프라 투자: $295B 규모 전략적 투자 계획</h3>
+                    <p>중국이 $295 billion 규모의 AI 인프라에 투자하려는 계획을 추진 중입니다. 이는 글로벌 AI 경쟁이 단순한 기술 경쟁을 넘어 국가적 자본 경쟁으로 확대되었음을 의미합니다.</p>
+                    <a href="https://techstartups.com/2026/06/09/top-tech-news-today-june-9-2026/" target="_blank">기사 읽기</a>
+                    <div>
+                        <span class="category-tag category-biz">🌏 지역</span>
+                        <span class="category-tag category-biz">💰 투자</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📱 This digest is automatically updated daily | 💡 Curated by AI Digest System | ⚡ Powered by Web Intelligence</p>
+            <p style="margin-top: 10px; color: #ccc;">Last updated: 2026-06-11 | Next update: 2026-06-12 09:00 KST</p>
+        </div>
+    </div>
+</body>
+</html>
