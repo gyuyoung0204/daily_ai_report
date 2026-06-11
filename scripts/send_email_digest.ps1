@@ -39,7 +39,7 @@ try {
     # $EmailCred = Get-Content "$PSScriptRoot\..\.env" -Raw | ConvertFrom-Json
     # $SmtpClient.Credentials = New-Object System.Net.NetworkCredential($EmailCred.EmailUser, $EmailCred.EmailPassword)
 
-    Write-Log "SMTP 클라이언트 설정 완료 (Server: $SmtpServer:$SmtpPort)"
+    Write-Log "SMTP 클라이언트 설정 완료 (Server: ${SmtpServer}:${SmtpPort})"
 
     # 메일 메시지 생성
     $MailMessage = New-Object System.Net.Mail.MailMessage
