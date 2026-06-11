@@ -1,4 +1,4 @@
-# Daily AI/IT Digest Email Sender
+﻿# Daily AI/IT Digest Email Sender
 # 생성된 HTML 다이제스트를 이메일로 자동 발송
 
 param(

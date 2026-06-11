@@ -1,4 +1,4 @@
-# Windows Task Scheduler에 매일 자동 실행 작업 등록
+﻿# Windows Task Scheduler에 매일 자동 실행 작업 등록
 # 관리자 권한으로 실행해야 함
 
 param(
