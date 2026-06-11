@@ -1,11 +1,14 @@
-# Daily AI/IT News Digest Generator v2.1
-# PowerShell 5.0+ compatible - Fixed path handling
+# Daily AI/IT News Digest Generator v3.0
+# Features: Advanced TF-IDF duplicate detection, Email integration, Caching
+# PowerShell 5.0+ compatible
 
 $scriptDir = "C:\tmpfile\ai_report"
 $OutputPath = "$scriptDir\daily_ai_digest.html"
 $LogPath = "$scriptDir\logs\digest_log.txt"
 $CachePath = "$scriptDir\data\news_cache.json"
 $TemplatePath = "$scriptDir\templates\digest_template.html"
+$DuplicateDetectionScript = "$scriptDir\scripts\duplicate_detection.ps1"
+$EmailScript = "$scriptDir\scripts\send_email_digest.ps1"
 
 # Create log directory
 $logDir = Split-Path -Parent $LogPath

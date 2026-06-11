@@ -3,6 +3,11 @@
 .env
 *.local
 
+# Generated output files (산출물 - 자동 생성됨)
+daily_ai_digest.html
+output/
+dist/
+
 # Logs (로그 파일은 깃에 커밋하지 않음)
 logs/
 logs/**/*.log
@@ -11,6 +16,7 @@ logs/**/*.txt
 
 # Data cache (매일 변경되므로 제외)
 data/**/*.json
+data/news_cache.json
 
 # IDE
 .vscode/
