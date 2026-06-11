@@ -1,4 +1,4 @@
-# Daily AI/IT News Digest Generator v3.0
+﻿# Daily AI/IT News Digest Generator v3.0
 # Features: Advanced TF-IDF duplicate detection, Email integration, Caching
 # PowerShell 5.0+ compatible
 
@@ -41,34 +41,56 @@ try {
     $lastUpdated = Get-Date -Format "yyyy-MM-dd HH:mm"
     $nextUpdate = (Get-Date).AddDays(1).ToString("yyyy-MM-dd 09:00")
 
-    # Sample news items
-    $newsItems = @"
-<div class="news-item priority">
-    <span class="priority-badge">★ 최우선</span>
-    <h3>Anthropic, 965B 가치평가로 세계 최고 가치 AI 스타트업 등극</h3>
-    <div class="news-meta">📅 2026-06-10 | 📌 Crescendo AI</div>
-    <p>Anthropic이 65 billion 규모의 Series H 펀딩을 완료하며 세계에서 가장 가치있는 AI 스타트업이 되었습니다.</p>
-    <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">기사 읽기</a>
-    <div><span class="category-tag category-biz">비즈니스</span></div>
-</div>
+    # Load duplicate detection module (Issue #4)
+    . $DuplicateDetectionScript
 
-<div class="news-item priority">
-    <span class="priority-badge">★ 최우선</span>
-    <h3>Claude Opus 4.8 출시: 병렬 에이전트 지원</h3>
-    <div class="news-meta">📅 2026-06-10 | 📌 LLM Stats</div>
-    <p>새로운 Claude Opus 4.8이 병렬 서브에이전트 워크플로우를 지원합니다.</p>
-    <a href="https://llm-stats.com/llm-updates" target="_blank">기사 읽기</a>
-    <div><span class="category-tag category-ai">AI 모델</span></div>
-</div>
+    # News items as structured objects (enables duplicate detection before rendering)
+    $rawNews = @(
+        [PSCustomObject]@{
+            title = "Anthropic, 965B 가치평가로 세계 최고 가치 AI 스타트업 등극"
+            description = "Anthropic이 65 billion 규모의 Series H 펀딩을 완료하며 세계에서 가장 가치있는 AI 스타트업이 되었습니다."
+            url = "https://www.crescendo.ai/news/latest-ai-news-and-updates"
+            source = "Crescendo AI"; date = "2026-06-10"; priority = $true
+            category = "category-biz"; categoryLabel = "비즈니스"
+        },
+        [PSCustomObject]@{
+            title = "Claude Opus 4.8 출시: 병렬 에이전트 지원"
+            description = "새로운 Claude Opus 4.8이 병렬 서브에이전트 워크플로우를 지원합니다."
+            url = "https://llm-stats.com/llm-updates"
+            source = "LLM Stats"; date = "2026-06-10"; priority = $true
+            category = "category-ai"; categoryLabel = "AI 모델"
+        },
+        [PSCustomObject]@{
+            title = "Google Gemma 4 공개: 오픈소스 고급 추론 모델"
+            description = "Google이 Gemma 4를 공개했습니다. 고급 추론과 에이전틱 워크플로우를 위해 설계되었습니다."
+            url = "https://llm-stats.com/ai-news"
+            source = "Google"; date = "2026-06-10"; priority = $false
+            category = "category-ai"; categoryLabel = "새 모델"
+        }
+    )
 
-<div class="news-item">
-    <h3>Google Gemma 4 공개: 오픈소스 고급 추론 모델</h3>
-    <div class="news-meta">📅 2026-06-10 | 📌 Google</div>
-    <p>Google이 Gemma 4를 공개했습니다. 고급 추론과 에이전틱 워크플로우를 위해 설계되었습니다.</p>
-    <a href="https://llm-stats.com/ai-news" target="_blank">기사 읽기</a>
-    <div><span class="category-tag category-ai">새 모델</span></div>
+    # Apply TF-IDF duplicate removal before rendering
+    $uniqueNews = @(Remove-DuplicateNews -NewsItems $rawNews -Threshold 0.85)
+    Write-Log "Duplicate detection: $($rawNews.Count) -> $($uniqueNews.Count) items" "INFO"
+
+    $priorityCount = @($uniqueNews | Where-Object { $_.priority }).Count
+    $categoryCount = @($uniqueNews | Select-Object -ExpandProperty category -Unique).Count
+
+    # Render news items to HTML
+    $newsItems = ($uniqueNews | ForEach-Object {
+        $priorityClass = if ($_.priority) { " priority" } else { "" }
+        $priorityBadge = if ($_.priority) { '<span class="priority-badge">★ 최우선</span>' } else { "" }
+        @"
+<div class="news-item$priorityClass">
+    $priorityBadge
+    <h3>$($_.title)</h3>
+    <div class="news-meta">📅 $($_.date) | 📌 $($_.source)</div>
+    <p>$($_.description)</p>
+    <a href="$($_.url)" target="_blank">기사 읽기</a>
+    <div><span class="category-tag $($_.category)">$($_.categoryLabel)</span></div>
 </div>
 "@
+    }) -join "`n"
 
     # Developer insights
     $insights = @"
@@ -95,9 +117,9 @@ try {
     $htmlContent = $htmlTemplate -replace '{{DATE}}', $currentDate
     $htmlContent = $htmlContent -replace '{{LAST_UPDATED}}', $lastUpdated
     $htmlContent = $htmlContent -replace '{{NEXT_UPDATE}}', $nextUpdate
-    $htmlContent = $htmlContent -replace '{{TOTAL_NEWS}}', '3'
-    $htmlContent = $htmlContent -replace '{{PRIORITY_COUNT}}', '2'
-    $htmlContent = $htmlContent -replace '{{CATEGORIES}}', '3'
+    $htmlContent = $htmlContent -replace '{{TOTAL_NEWS}}', $uniqueNews.Count
+    $htmlContent = $htmlContent -replace '{{PRIORITY_COUNT}}', $priorityCount
+    $htmlContent = $htmlContent -replace '{{CATEGORIES}}', $categoryCount
     $htmlContent = $htmlContent -replace '{{INSIGHTS_SECTION}}', $insights
     $htmlContent = $htmlContent -replace '{{NEWS_ITEMS}}', $newsItems
     $htmlContent = $htmlContent -replace '{{ERROR_MESSAGE}}', ''

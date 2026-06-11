@@ -20,9 +20,14 @@ daily_ai_report/
 ├── daily_ai_digest.html            # 최종 결과물
 ├── scripts/
 │   ├── generate_digest.ps1         # 뉴스 생성 (수정 필요)
+│   ├── duplicate_detection.ps1     # TF-IDF 중복 감지 (테스트 통과)
+│   ├── test_duplicate_detection.ps1 # 중복 감지 실데이터 테스트
+│   ├── collect_logs.ps1            # 로그 중앙 수집 (Issue #9)
+│   ├── measure_performance.ps1     # 성능 측정 (Issue #10)
+│   ├── send_email_digest.ps1       # 이메일 발송 (SMTP 설정 필요)
 │   └── schedule_daily_task.ps1     # 자동화 설정
 ├── data/news_cache.json            # 중복 제거용 캐시
-├── logs/digest_log.txt             # 실행 로그
+├── logs/                           # 실행 로그 + aggregated_summary.json + metrics.json
 ├── .github/workflows/
 │   └── auto-issue-update.yml       # GitHub Actions
 └── skills/
