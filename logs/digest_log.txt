@@ -6,3 +6,18 @@
 2026-06-11 15:27:48 | [INFO] ??HTML generation completed: C:\tmpfile\ai_report\scripts\..\daily_ai_digest.html
 2026-06-11 15:27:48 | [INFO] ??Cache updated
 2026-06-11 15:27:48 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
+2026-06-11 15:31:24 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-11 15:31:24 | [INFO] ??HTML generation completed: C:\tmpfile\ai_report\scripts\..\daily_ai_digest.html
+2026-06-11 15:31:24 | [INFO] ??Cache updated
+2026-06-11 15:31:24 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
+2026-06-11 15:31:37 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-11 15:31:37 | [INFO] HTML generation completed: C:\tmpfile\ai_report\scripts\..\daily_ai_digest.html
+2026-06-11 15:31:37 | [INFO] ??Cache updated
+2026-06-11 15:31:37 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
+2026-06-11 15:32:47 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-11 15:32:47 | [ERROR] ??Error: Template not found: C:\tmpfile\ai_report\scripts\C:\tmpfile\ai_report\templates\digest_template.html
+2026-06-11 15:32:47 | [ERROR] ========== Generation Failed ==========
+2026-06-11 15:33:08 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-11 15:33:08 | [INFO] HTML generation completed: C:\tmpfile\ai_report\daily_ai_digest.html
+2026-06-11 15:33:08 | [INFO] Cache updated
+2026-06-11 15:33:08 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
