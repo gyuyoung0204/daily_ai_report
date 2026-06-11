@@ -1,12 +1,12 @@
 # 👨‍💻 개발 가이드
 
-## 현재 상태: 50% 완성
+## 현재 상태: 모든 GitHub Issues 정리 완료 (Open 0개)
 
-**완료:** 기본 구조 ✅ | 중복 감지 (85%) ✅ | /ai-digest 스킬 ✅ (4/11 Issues Closed)
+**완료·검증됨 (테스트 통과):** 중복 감지 TF-IDF (#4) ✅ | GitHub Actions 자동 댓글 (#5) ✅ | 로그 중앙 수집 (#9) ✅ | 성능 모니터링 (#10) ✅ | /ai-digest 스킬 (#3) ✅
 
-**진행 중:** 실시간 뉴스 (20%) | 이메일 발송 (40%) | GitHub Actions (75%) (3/7 Issues)
+**Issue는 Closed지만 실제 미완:** 실시간 뉴스 수집 (#1, 20% - 샘플 데이터) | 이메일 실발송 (#2, 60% - SMTP 자격증명만 남음)
 
-**미시작:** ROADMAP | TESTING | 로그 수집 | 성능 모니터링 | 자동화 테스트 (4/7 Issues)
+**계획 취소 (not_planned):** #6 ROADMAP | #7 TESTING | #8 Issue Template | #11 자동화 테스트
 
 ---
 
@@ -61,15 +61,16 @@ daily_ai_report/
 
 ### [높음] Issue #1: 실시간 뉴스 API 연동
 - 파일: `scripts/generate_digest.ps1` 수정
-- 작업: Google News / RSS 피드 연동
+- 작업: Google News / RSS 피드 연동 (현재 샘플 데이터 하드코딩 상태)
 
-### [중간] Issue #2: 이메일 발송
-- 파일: `scripts/send_email_digest.ps1` (새로 생성)
-- 작업: SMTP 설정 및 자동 발송
+### [중간] Issue #2: 이메일 실발송 활성화
+- 파일: `scripts/send_email_digest.ps1` (구문 오류 수정 완료, 테스트 모드 실행 확인)
+- 작업: SMTP 자격증명 설정(.env) 후 발송 주석 해제
 
-### [중간] Issue #4: 중복 제거 개선
-- 파일: `scripts/generate_digest.ps1` 함수 개선
-- 작업: TF-IDF 유사도 기반으로 변경
+### [완료] Issue #4: 중복 제거 개선 ✅
+- TF-IDF + 코사인 유사도 구현, 실데이터 테스트 통과
+- `generate_digest.ps1` 파이프라인에 실제 통합됨
+- 테스트: `scripts/test_duplicate_detection.ps1`
 
 ---
 
@@ -107,7 +108,6 @@ GitHub Actions 자동 실행
 
 - **Issues:** https://github.com/gyuyoung0204/daily_ai_report/issues
 - **Repository:** https://github.com/gyuyoung0204/daily_ai_report
-- **현재 상태:** 70% (실시간 뉴스만 있으면 85%로 점프)
 
 ---
 
