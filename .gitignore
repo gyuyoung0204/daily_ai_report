@@ -3,9 +3,14 @@
 .env
 *.local
 
-# Logs
+# Logs (로그 파일은 깃에 커밋하지 않음)
 logs/
+logs/**/*.log
+logs/**/*.txt
 *.log
+
+# Data cache (매일 변경되므로 제외)
+data/**/*.json
 
 # IDE
 .vscode/
@@ -19,3 +24,4 @@ Thumbs.db
 *.tmp
 *.swp
 *~
+*.bak
