@@ -4,7 +4,7 @@
 
 **완료·검증됨 (테스트 통과):** 중복 감지 TF-IDF (#4) ✅ | GitHub Actions 자동 댓글 (#5) ✅ | 로그 중앙 수집 (#9) ✅ | 성능 모니터링 (#10) ✅ | /ai-digest 스킬 (#3) ✅
 
-**Issue는 Closed지만 실제 미완:** 실시간 뉴스 수집 (#1, 20% - 샘플 데이터) | 이메일 실발송 (#2, 60% - SMTP 자격증명만 남음)
+**Issue는 Closed지만 실제 미완:** 실시간 뉴스 수집 (#1, 40% - news-curator 에이전트가 WebSearch로 실데이터 6건 수집·통합, 자동 스케줄링은 미완) | 이메일 실발송 (#2, 60% - SMTP 자격증명만 남음)
 
 **계획 취소 (not_planned):** #6 ROADMAP | #7 TESTING | #8 Issue Template | #11 자동화 테스트
 

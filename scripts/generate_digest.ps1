@@ -45,27 +45,49 @@ try {
     . $DuplicateDetectionScript
 
     # News items as structured objects (enables duplicate detection before rendering)
+    # 2026-06-12 news-curator 에이전트가 WebSearch로 출처 검증한 실데이터
     $rawNews = @(
         [PSCustomObject]@{
-            title = "Anthropic, 965B 가치평가로 세계 최고 가치 AI 스타트업 등극"
-            description = "Anthropic이 65 billion 규모의 Series H 펀딩을 완료하며 세계에서 가장 가치있는 AI 스타트업이 되었습니다."
-            url = "https://www.crescendo.ai/news/latest-ai-news-and-updates"
-            source = "Crescendo AI"; date = "2026-06-10"; priority = $true
-            category = "category-biz"; categoryLabel = "비즈니스"
-        },
-        [PSCustomObject]@{
-            title = "Claude Opus 4.8 출시: 병렬 에이전트 지원"
-            description = "새로운 Claude Opus 4.8이 병렬 서브에이전트 워크플로우를 지원합니다."
-            url = "https://llm-stats.com/llm-updates"
-            source = "LLM Stats"; date = "2026-06-10"; priority = $true
+            title = "마이크로소프트, MAI 모델 7종 동시 출시로 OpenAI 의존도 낮춘다"
+            description = "MS가 Build 2026에서 추론·코딩·이미지·음성·전사 분야의 자체 개발 MAI 모델 7종을 공개, 최대 10배 효율 향상을 주장하는 Frontier Tuning 기술도 함께 발표했다."
+            url = "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/"
+            source = "Microsoft AI News"; date = "2026-06-02"; priority = $true
             category = "category-ai"; categoryLabel = "AI 모델"
         },
         [PSCustomObject]@{
-            title = "Google Gemma 4 공개: 오픈소스 고급 추론 모델"
-            description = "Google이 Gemma 4를 공개했습니다. 고급 추론과 에이전틱 워크플로우를 위해 설계되었습니다."
-            url = "https://llm-stats.com/ai-news"
-            source = "Google"; date = "2026-06-10"; priority = $false
-            category = "category-ai"; categoryLabel = "새 모델"
+            title = "애플 WWDC 2026: 구글 Gemini 탑재 'Siri AI' 공개, iOS 27 발표"
+            description = "애플이 WWDC 2026에서 구글 Gemini 기반으로 완전히 재설계된 Siri AI를 발표하고, 경쟁 챗봇과의 연동 계획도 함께 공개했다."
+            url = "https://techcrunch.com/2026/06/09/wwdc-2026-everything-announced-on-siri-ai-os-27-apple-intelligence-and-more/"
+            source = "TechCrunch"; date = "2026-06-09"; priority = $true
+            category = "category-ai"; categoryLabel = "AI 모델"
+        },
+        [PSCustomObject]@{
+            title = "OpenAI, 비밀 S-1 SEC 제출…IPO 경쟁 본격화"
+            description = "OpenAI가 기업공개를 위해 SEC에 비밀 예비 S-1을 제출했으며, 852B 밸류에이션으로 2026년 하반기 상장을 검토 중이다."
+            url = "https://fortune.com/2026/06/09/openai-files-confidential-s-1-sec-ipo/"
+            source = "Fortune"; date = "2026-06-09"; priority = $false
+            category = "category-biz"; categoryLabel = "비즈니스"
+        },
+        [PSCustomObject]@{
+            title = "Anthropic, 965B 밸류에이션으로 IPO 비밀 제출…OpenAI 첫 추월"
+            description = "Anthropic이 65B Series H 마감 직후 SEC에 S-1을 비밀 제출하며 OpenAI(852B)를 처음으로 기업가치에서 앞질렀고, 연환산 매출 47B을 공개했다."
+            url = "https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/"
+            source = "Fortune"; date = "2026-06-01"; priority = $false
+            category = "category-biz"; categoryLabel = "비즈니스"
+        },
+        [PSCustomObject]@{
+            title = "NVIDIA·SK하이닉스, AI 팩토리용 차세대 메모리 다년간 공동 개발 협약"
+            description = "양사가 Vera Rubin 슈퍼컴퓨터·RTX Spark PC·Jetson Thor 로봇 플랫폼용 메모리를 공동 개발하는 다년 기술 파트너십을 체결했다."
+            url = "https://nvidianews.nvidia.com/news/sk-hynix-ai-factory"
+            source = "NVIDIA Newsroom"; date = "2026-06-07"; priority = $false
+            category = "category-infra"; categoryLabel = "인프라"
+        },
+        [PSCustomObject]@{
+            title = "마블, AI 인프라 수요 급증에 힘입어 S&P 500 편입 확정"
+            description = "AI 데이터센터 맞춤형 칩 수요 폭증을 배경으로 Marvell이 6월 22일부터 S&P 500에 공식 편입되며, 주가가 급등했다."
+            url = "https://www.fxleaders.com/news/2026/06/11/marvell-joins-sp-500-on-ai-infrastructure-surge/"
+            source = "FX Leaders"; date = "2026-06-11"; priority = $false
+            category = "category-infra"; categoryLabel = "인프라"
         }
     )
 
