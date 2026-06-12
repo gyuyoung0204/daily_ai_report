@@ -30,11 +30,45 @@ daily_ai_report/
 ├── logs/                           # 실행 로그 + aggregated_summary.json + metrics.json
 ├── .github/workflows/
 │   └── auto-issue-update.yml       # GitHub Actions
-└── skills/
-    ├── ai-digest/SKILL.md
-    ├── issue-processor/SKILL.md
-    └── documentation/SKILL.md      # 문서 자동화 (신규)
+└── .claude/                        # Claude Code 하네스
+    ├── settings.json               # env(팀) + hooks (커밋됨)
+    ├── settings.local.json         # 권한 + 토큰 (gitignore)
+    ├── skills/                     # 진입점 워크플로우 (/명령)
+    │   ├── ai-digest/SKILL.md
+    │   ├── issue-processor/SKILL.md
+    │   ├── documentation/SKILL.md
+    │   └── daily-workflow/SKILL.md
+    ├── agents/                     # 독립 컨텍스트 워커
+    │   ├── news-curator.md
+    │   ├── digest-builder.md
+    │   ├── issue-manager.md
+    │   └── doc-keeper.md
+    └── hooks/                      # 이벤트 자동화
+        ├── add-bom.ps1             # 한글 .ps1 BOM 자동 부착
+        ├── log-activity.ps1        # 파일 변경 로그 기록
+        └── session-status.ps1      # 세션 시작 상태 요약
 ```
+
+---
+
+## 하네스 구조 (Claude Code)
+
+공식 컨벤션에 따라 4계층으로 구성. **한 정보=한 곳** 원칙 적용.
+
+| 계층 | 위치 | 역할 |
+|------|------|------|
+| 스킬 | `.claude/skills/` | 사용자 진입점·절차 (`/ai-digest` 등). 에이전트에 위임 |
+| 에이전트 | `.claude/agents/` | 자체 컨텍스트를 갖는 전문 워커. 메인 대화 오염 방지 |
+| 훅 | `.claude/settings.json` | 이벤트 가드레일 (BOM 부착·로그·상태) |
+| 메모리 | `CLAUDE.md` | 항상 로드되는 사실 (이 파일) |
+
+**위임 관계:**
+- `/ai-digest` → news-curator + digest-builder
+- `/issue-processor` → issue-manager
+- `/documentation` → doc-keeper
+- `/daily-workflow` → 위 3개 스킬 순차 오케스트레이션 (또는 에이전트 팀)
+
+**에이전트 팀:** `.claude/settings.json`의 `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`로 활성화 (인터랙티브 세션 전용).
 
 ---
 
@@ -76,31 +110,13 @@ daily_ai_report/
 
 ## 개발 규칙 5가지
 
-1. **한글 인코딩**: `UTF8Encoding($false)` 사용
+1. **한글 인코딩**: `UTF8Encoding($false)` 사용. 한글 .ps1은 BOM 필요 (add-bom.ps1 훅이 자동 처리)
 2. **Token 보안**: `.gitignore`에 등록, GitHub에 업로드 금지
-3. **로그 기록**: 모든 작업을 `logs/digest_log.txt`에 기록
+3. **로그 기록**: 모든 작업을 `logs/digest_log.txt`에 기록 (log-activity.ps1 훅이 자동 기록)
 4. **Git 커밋**: `feat(scope): description` 형식 준수
-5. **승인 후 push**: 수정 전에 항상 사용자에게 물어보기
+5. **자동 push**: 커밋 후 사용자 확인 없이 자동 push (사용자 지시)
 
----
-
-## 워크플로우
-
-```
-Issue 확인
-  ↓
-로컬에서 구현
-  ↓
-logs에 기록
-  ↓
-테스트 (먼저 물어보기)
-  ↓
-사용자 승인 ← ⭐ 중요!
-  ↓
-git add/commit/push
-  ↓
-GitHub Actions 자동 실행
-```
+> 상세 작업 절차는 `/daily-workflow` 스킬에 정의됨 (절차는 스킬, 사실은 이 파일).
 
 ---
 

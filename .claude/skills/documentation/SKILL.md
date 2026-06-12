@@ -7,6 +7,8 @@ description: Automatically optimize and maintain project documentation with zero
 
 Automatically maintain optimal project documentation with 3-role separation and zero duplication.
 
+> **위임:** SOUL/CLAUDE/README 동기화 작업은 `doc-keeper` 에이전트에 위임 (`.claude/agents/doc-keeper.md`). 진행률은 실제 GitHub 이슈 상태로 검증 후 기록한다.
+
 ## What This Skill Does
 
 ### 1. **Project State Analysis**

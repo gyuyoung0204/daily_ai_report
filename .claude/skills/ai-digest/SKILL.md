@@ -7,6 +7,8 @@ description: Generate daily AI/IT news digest AND auto-detect project issues. Co
 
 자동으로 뉴스를 생성하면서 **동시에 프로젝트의 약점을 발견하고 GitHub Issue로 등록**합니다.
 
+> **위임:** 뉴스 수집은 `news-curator`, HTML 생성·중복 제거는 `digest-builder`, 이슈 등록은 `issue-manager` 에이전트에 위임 (`.claude/agents/`).
+
 ## What This Skill Does
 
 This skill creates a beautiful digest AND improves the project. It:

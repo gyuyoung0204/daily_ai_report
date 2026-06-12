@@ -7,6 +7,8 @@ description: Automatically solve GitHub Issues by implementing fixes, testing ch
 
 GitHub Issues를 **자동으로 분석, 해결, 테스트, 커밋**합니다.
 
+> **위임:** 이슈 조회·댓글·종료 등 GitHub API 작업은 `issue-manager` 에이전트에 위임 (`.claude/agents/issue-manager.md`). 한글 JSON은 PowerShell `Invoke-RestMethod`로 전송한다.
+
 ## What This Skill Does
 
 This skill solves issues automatically:

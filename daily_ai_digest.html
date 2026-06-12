@@ -222,6 +222,7 @@
         .category-ai { background: #e3f2fd; color: #1976d2; }
         .category-biz { background: #f3e5f5; color: #7b1fa2; }
         .category-infra { background: #e0f2f1; color: #00897b; }
+        .category-dev { background: #f1f8e9; color: #558b2f; }
 
         .footer {
             background: #f0f1f3;
@@ -232,15 +233,30 @@
             border-top: 1px solid #ddd;
         }
 
+        .error-message {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            border-radius: 5px;
+            color: #c62828;
+            margin-bottom: 20px;
+        }
+
         @media (max-width: 768px) {
             .stats {
                 grid-template-columns: 1fr;
             }
+
             .header h1 {
                 font-size: 1.8em;
             }
+
             .content {
                 padding: 20px;
+            }
+
+            .insights-section {
+                padding: 15px;
             }
         }
     </style>
@@ -250,7 +266,7 @@
         <div class="header">
             <h1>🤖 Daily AI/IT Digest</h1>
             <p>최신 AI·기술 동향 일일 리포트</p>
-            <p class="date">📅 2026년 6월 11일 (수)</p>
+            <p class="date">📅 2026년 6월 11일 (목)</p>
         </div>
 
         <div class="content">
@@ -264,72 +280,64 @@
                     <div class="stat-label">최우선 뉴스</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-number">3</div>
+                    <div class="stat-number">2</div>
                     <div class="stat-label">분야 다양성</div>
                 </div>
             </div>
 
             <div class="insights-section">
-                <h3>💡 개발자를 위한 인사이트</h3>
-                <div class="insight-item">
-                    <span class="insight-label">🔴 즉시 확인:</span>
-                    <div class="insight-content">
-                        • Claude Opus 4.8 병렬 에이전트 API - 지금 바로 코드 검토 필요<br>
-                        • Gemma 4 오픈소스 공개 - 로컬 모델로 자체 에이전트 구현 가능<br>
-                        • TurboQuant 기술 - LLM 배포 비용 25-40% 절감 가능
-                    </div>
-                </div>
-                <div class="insight-item">
-                    <span class="insight-label">🟡 2주 내 확인:</span>
-                    <div class="insight-content">
-                        • 병렬 에이전트 구현 방법 학습<br>
-                        • OpenAI 의존성 줄일 수 있는지 검토<br>
-                        • NVIDIA-SK hynix 메모리 파트너십 영향 분석
-                    </div>
-                </div>
-                <div class="insight-item">
-                    <span class="insight-label">🟢 모니터링:</span>
-                    <div class="insight-content">
-                        • Anthropic IPO 일정 - 향후 AI 스타트업 벨류에이션 기준점<br>
-                        • 엔터프라이즈 에이전트 출현 증가 - 2026 후반부터 자동화 영향
-                    </div>
-                </div>
-            </div>
+    <h3>개발자를 위한 인사이트</h3>
+    <div class="insight-item">
+        <span class="insight-label">즉시 확인:</span>
+        <div class="insight-content">
+            • Claude Opus 4.8 병렬 에이전트 API - 지금 바로 코드 검토 필요<br>
+            • Gemma 4 오픈소스 공개 - 로컬 모델로 자체 에이전트 구현 가능
+        </div>
+    </div>
+    <div class="insight-item">
+        <span class="insight-label">2주 내 확인:</span>
+        <div class="insight-content">
+            • 병렬 에이전트 구현 방법 학습<br>
+            • OpenAI 의존성 줄일 수 있는지 검토
+        </div>
+    </div>
+</div>
 
             <h2 class="section-title">📰 오늘의 뉴스</h2>
 
+            
+
             <div class="news-list">
                 <div class="news-item priority">
-                    <span class="priority-badge">⭐ 최우선</span>
-                    <h3>Anthropic, $965B 가치평가로 세계 최고 가치 AI 스타트업 등극</h3>
-                    <div class="news-meta">📅 2026-06-10 | 📌 Crescendo AI</div>
-                    <p>Anthropic이 $65 billion 규모의 Series H 펀딩을 완료하며 세계에서 가장 가치있는 AI 스타트업이 되었습니다. 연간 수익이 $47 billion을 넘어섰으며, 6월 2일에 SEC에 S-1을 기밀 제출했습니다.</p>
-                    <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">기사 읽기</a>
-                    <div><span class="category-tag category-biz">💰 비즈니스</span></div>
-                </div>
-
-                <div class="news-item priority">
-                    <span class="priority-badge">⭐ 최우선</span>
-                    <h3>Claude Opus 4.8 출시: SWE-bench 88.6%, 병렬 에이전트 지원</h3>
-                    <div class="news-meta">📅 2026-06-10 | 📌 LLM Stats</div>
-                    <p>Anthropic의 새로운 Claude Opus 4.8이 SWE-bench Verified에서 88.6%의 성능을 기록했습니다. 병렬 서브에이전트 워크플로우를 지원하며, Fast Mode를 통해 2.5배의 속도 향상을 제공합니다.</p>
-                    <a href="https://llm-stats.com/llm-updates" target="_blank">기사 읽기</a>
-                    <div><span class="category-tag category-ai">🤖 AI 모델</span></div>
-                </div>
-
-                <div class="news-item">
-                    <h3>Google Gemma 4 공개: 오픈소스 고급 추론 모델</h3>
-                    <div class="news-meta">📅 2026-06-10 | 📌 Google</div>
-                    <p>Google이 Gemma 4를 공개했습니다. 이 모델 시리즈는 고급 추론과 에이전틱 워크플로우를 위해 특별히 설계되었으며, Apache 2.0 라이선스로 배포됩니다.</p>
-                    <a href="https://llm-stats.com/ai-news" target="_blank">기사 읽기</a>
-                    <div><span class="category-tag category-ai">🚀 새 모델</span></div>
-                </div>
+    <span class="priority-badge">★ 최우선</span>
+    <h3>Anthropic, 965B 가치평가로 세계 최고 가치 AI 스타트업 등극</h3>
+    <div class="news-meta">📅 2026-06-10 | 📌 Crescendo AI</div>
+    <p>Anthropic이 65 billion 규모의 Series H 펀딩을 완료하며 세계에서 가장 가치있는 AI 스타트업이 되었습니다.</p>
+    <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">기사 읽기</a>
+    <div><span class="category-tag category-biz">비즈니스</span></div>
+</div>
+<div class="news-item priority">
+    <span class="priority-badge">★ 최우선</span>
+    <h3>Claude Opus 4.8 출시: 병렬 에이전트 지원</h3>
+    <div class="news-meta">📅 2026-06-10 | 📌 LLM Stats</div>
+    <p>새로운 Claude Opus 4.8이 병렬 서브에이전트 워크플로우를 지원합니다.</p>
+    <a href="https://llm-stats.com/llm-updates" target="_blank">기사 읽기</a>
+    <div><span class="category-tag category-ai">AI 모델</span></div>
+</div>
+<div class="news-item">
+    
+    <h3>Google Gemma 4 공개: 오픈소스 고급 추론 모델</h3>
+    <div class="news-meta">📅 2026-06-10 | 📌 Google</div>
+    <p>Google이 Gemma 4를 공개했습니다. 고급 추론과 에이전틱 워크플로우를 위해 설계되었습니다.</p>
+    <a href="https://llm-stats.com/ai-news" target="_blank">기사 읽기</a>
+    <div><span class="category-tag category-ai">새 모델</span></div>
+</div>
             </div>
         </div>
 
         <div class="footer">
             <p>📱 This digest is automatically updated daily | 💡 Curated by AI Digest System | ⚡ Powered by Web Intelligence</p>
-            <p style="margin-top: 10px; color: #ccc;">Last updated: 2026-06-11 15:33 | Next update: 2026-06-12 09:00</p>
+            <p style="margin-top: 10px; color: #ccc;">Last updated: 2026-06-11 21:55 | Next update: 2026-06-12 09:00</p>
         </div>
     </div>
 </body>
