@@ -59,11 +59,6 @@ Issue #1: Automate news collection
     ├── [ ] Deploy to production
     └── Close issue when complete
 
-Issue #2: Email Notification
-├── [Phase 1] SMTP Configuration
-└── [Phase 2] Automation Setup
-└── [Phase 3] Testing
-
 Issue #3: /ai-digest Skill
 ├── Status: ✅ COMPLETED
 └── Closed
@@ -83,9 +78,6 @@ System:
    └── Phase 1: Web API integration
    └── 📝 Posted progress comment
    └── ✅ Phase 1 complete
-3. 📋 #2 - Email notification
-   └── Phase 1: SMTP setup
-   └── 📝 Posted progress comment
 4. 📋 #3 - /ai-digest skill
    └── ✅ Already complete
    └── 🎉 Closing issue
@@ -120,7 +112,6 @@ Result:
 
 Works seamlessly with `/ai-digest` skill:
 - News collection feeds into Issue #1 tasks
-- Email notifications from Issue #2 support
 - Duplicate detection from Issue #4 enhances news quality
 
 ## Tips for Best Results

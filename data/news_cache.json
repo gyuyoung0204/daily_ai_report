@@ -2,21 +2,21 @@
     "metadata":  {
                      "total_news":  3,
                      "version":  "1.0",
-                     "last_updated":  "2026-06-11T21:55:26.3669258+09:00"
+                     "last_updated":  "2026-06-18T16:13:37.9767282+09:00"
                  },
     "cache":  [
                   {
-                      "date":  "2026-06-11",
+                      "date":  "2026-06-18",
                       "title":  "Anthropic 965B",
                       "url":  "https://www.crescendo.ai/news/latest-ai-news-and-updates"
                   },
                   {
-                      "date":  "2026-06-11",
+                      "date":  "2026-06-18",
                       "title":  "Claude Opus 4.8",
                       "url":  "https://llm-stats.com/llm-updates"
                   },
                   {
-                      "date":  "2026-06-11",
+                      "date":  "2026-06-18",
                       "title":  "Gemma 4",
                       "url":  "https://llm-stats.com/ai-news"
                   }

@@ -34,3 +34,33 @@
 2026-06-12 14:34:47 | [HOOK] Edit -> C:\tmpfile\ai_report\.claude\skills\ai-digest\SKILL.md
 2026-06-12 14:35:18 | [HOOK] Edit -> C:\tmpfile\ai_report\.claude\skills\issue-processor\SKILL.md
 2026-06-12 14:35:34 | [HOOK] Edit -> C:\tmpfile\ai_report\.claude\skills\documentation\SKILL.md
+2026-06-18 13:46:19 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-18 13:46:20 | [INFO] Duplicate detection: 6 -> 6 items
+2026-06-18 13:46:20 | [INFO] HTML generation completed: F:\김동규\세미나\AI세미나\2026 세미나\daily_ai_report\daily_ai_digest.html
+2026-06-18 13:46:20 | [INFO] Cache updated
+2026-06-18 13:46:20 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
+2026-06-18 14:50:26 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-18 14:50:26 | [INFO] Duplicate detection: 8 -> 8 items
+2026-06-18 14:50:26 | [INFO] HTML generation completed: F:\김동규\세미나\AI세미나\2026 세미나\daily_ai_report\daily_ai_digest.html
+2026-06-18 14:50:26 | [INFO] Cache updated
+2026-06-18 14:50:26 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
+2026-06-18 16:10:42 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-18 16:10:42 | [INFO] Duplicate detection: 8 -> 8 items
+2026-06-18 16:10:42 | [INFO] HTML generation completed: F:\김동규\세미나\AI세미나\2026 세미나\daily_ai_report\daily_ai_digest.html
+2026-06-18 16:10:42 | [INFO] Cache updated
+2026-06-18 16:10:42 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
+2026-06-18 16:12:03 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-18 16:12:03 | [INFO] Duplicate detection: 8 -> 8 items
+2026-06-18 16:12:03 | [INFO] HTML generation completed: F:\김동규\세미나\AI세미나\2026 세미나\daily_ai_report\daily_ai_digest.html
+2026-06-18 16:12:03 | [INFO] Cache updated
+2026-06-18 16:12:03 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
+2026-06-18 16:12:54 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-18 16:12:54 | [INFO] Duplicate detection: 8 -> 8 items
+2026-06-18 16:12:54 | [INFO] HTML generation completed: F:\김동규\세미나\AI세미나\2026 세미나\daily_ai_report\daily_ai_digest.html
+2026-06-18 16:12:54 | [INFO] Cache updated
+2026-06-18 16:12:54 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========
+2026-06-18 16:13:37 | [INFO] ========== Daily AI/IT Digest Generation Started ==========
+2026-06-18 16:13:37 | [INFO] Duplicate detection: 8 -> 8 items
+2026-06-18 16:13:37 | [INFO] HTML generation completed: F:\김동규\세미나\AI세미나\2026 세미나\daily_ai_report\daily_ai_digest.html
+2026-06-18 16:13:37 | [INFO] Cache updated
+2026-06-18 16:13:37 | [INFO] ========== Daily AI/IT Digest Generation Completed Successfully ==========

@@ -86,7 +86,7 @@ Output: Beautiful HTML file with:
 
 - **For broad coverage**: Run without specific keywords for general AI/IT news
 - **For focused research**: Specify areas like "LLM releases", "AI safety", "AI infrastructure"
-- **For team sharing**: Get the HTML output and email/share directly
+- **For team sharing**: Share the generated HTML output directly
 - **Daily habit**: Run each morning to stay updated on AI trends
 
 ## What You Get

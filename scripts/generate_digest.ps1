@@ -1,5 +1,5 @@
 ﻿# Daily AI/IT News Digest Generator v3.0
-# Features: Advanced TF-IDF duplicate detection, Email integration, Caching
+# Features: Advanced TF-IDF duplicate detection, Caching
 # PowerShell 5.0+ compatible
 
 # 저장소 루트를 스크립트 위치 기준 상대경로로 해석 (이식성 - Issue #12)
@@ -9,7 +9,6 @@ $LogPath = "$scriptDir\logs\digest_log.txt"
 $CachePath = "$scriptDir\data\news_cache.json"
 $TemplatePath = "$scriptDir\templates\digest_template.html"
 $DuplicateDetectionScript = "$scriptDir\scripts\duplicate_detection.ps1"
-$EmailScript = "$scriptDir\scripts\send_email_digest.ps1"
 
 # Create log directory
 $logDir = Split-Path -Parent $LogPath
