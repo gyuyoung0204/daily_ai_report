@@ -30,6 +30,7 @@
 | 로그 중앙 수집 | ✅ | Issue #9 - 23개 엔트리 수집 확인 (`scripts/collect_logs.ps1`) |
 | 성능 모니터링 | ✅ | Issue #10 - 1.7초 실측 기록 (`scripts/measure_performance.ps1`) |
 | GitHub Actions 자동 댓글 | ✅ | Issue #5 - YAML 파싱/멀티라인 출력 버그 수정 후 run 성공 |
+| 경로 이식성 (상대경로) | ✅ | Issue #12 - 하드코딩 `C:\tmpfile` 제거, 이동 후 생성 성공 (HTML 12,824 bytes, 커밋 `7e6f71c`) |
 
 ### 🔧 미완성 기능 (Issue는 Closed지만 실제 미완)
 
@@ -111,5 +112,5 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ---
 
-**마지막 업데이트:** 2026-06-11  
+**마지막 업데이트:** 2026-06-18  
 **상태:** 매일 업데이트 중 ✨

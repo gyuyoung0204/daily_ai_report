@@ -2,7 +2,9 @@
 
 ## 현재 상태: 모든 GitHub Issues 정리 완료 (Open 0개)
 
-**완료·검증됨 (테스트 통과):** 중복 감지 TF-IDF (#4) ✅ | GitHub Actions 자동 댓글 (#5) ✅ | 로그 중앙 수집 (#9) ✅ | 성능 모니터링 (#10) ✅ | /ai-digest 스킬 (#3) ✅
+**완료·검증됨 (테스트 통과):** 중복 감지 TF-IDF (#4) ✅ | GitHub Actions 자동 댓글 (#5) ✅ | 로그 중앙 수집 (#9) ✅ | 성능 모니터링 (#10) ✅ | /ai-digest 스킬 (#3) ✅ | 경로 이식성 수정 (#12) ✅
+
+**Issue #12 (2026-06-18 해결):** `generate_digest.ps1`·`session-status.ps1`의 하드코딩 절대경로(`C:\tmpfile\ai_report`)를 `$PSScriptRoot` 기반 상대경로로 교체. clone/이동한 위치에서도 다이제스트 생성 정상 동작 확인(`daily_ai_digest.html` 12,824 bytes, 커밋 `7e6f71c`).
 
 **Issue는 Closed지만 실제 미완:** 실시간 뉴스 수집 (#1, 40% - news-curator 에이전트가 WebSearch로 실데이터 6건 수집·통합, 자동 스케줄링은 미완) | 이메일 실발송 (#2, 60% - SMTP 자격증명만 남음)
 
@@ -127,5 +129,5 @@ daily_ai_report/
 
 ---
 
-**마지막 수정:** 2026-06-11  
-**다음 우선순위:** Issue #1 - 실시간 뉴스 API
+**마지막 수정:** 2026-06-18  
+**다음 우선순위:** Issue #1 - 실시간 뉴스 API ($rawNews 하드코딩 → RSS/API 연동)
