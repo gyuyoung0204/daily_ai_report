@@ -128,22 +128,29 @@ try {
 "@
     }) -join "`n"
 
-    # Developer insights
+    # Developer insights - 수집된 뉴스에서 동적 생성 (Issue #13: 하드코딩 제거, 데이터-산출물 일치)
+    $priorityNews = @($uniqueNews | Where-Object { $_.priority })
+    $regularNews  = @($uniqueNews | Where-Object { -not $_.priority })
+
+    $immediateLines = ($priorityNews | ForEach-Object { "&bull; [$($_.categoryLabel)] $($_.title)" }) -join "<br>`n            "
+    if (-not $immediateLines) { $immediateLines = "&bull; (최우선 항목 없음)" }
+
+    $watchLines = ($regularNews | Select-Object -First 3 | ForEach-Object { "&bull; [$($_.categoryLabel)] $($_.title)" }) -join "<br>`n            "
+    if (-not $watchLines) { $watchLines = "&bull; (추가 모니터링 항목 없음)" }
+
     $insights = @"
 <div class="insights-section">
     <h3>개발자를 위한 인사이트</h3>
     <div class="insight-item">
-        <span class="insight-label">즉시 확인:</span>
+        <span class="insight-label">즉시 확인 (최우선 $($priorityNews.Count)건):</span>
         <div class="insight-content">
-            • Claude Opus 4.8 병렬 에이전트 API - 지금 바로 코드 검토 필요<br>
-            • Gemma 4 오픈소스 공개 - 로컬 모델로 자체 에이전트 구현 가능
+            $immediateLines
         </div>
     </div>
     <div class="insight-item">
-        <span class="insight-label">2주 내 확인:</span>
+        <span class="insight-label">주목할 동향:</span>
         <div class="insight-content">
-            • 병렬 에이전트 구현 방법 학습<br>
-            • OpenAI 의존성 줄일 수 있는지 검토
+            $watchLines
         </div>
     </div>
 </div>
