@@ -46,48 +46,62 @@ try {
     . $DuplicateDetectionScript
 
     # News items as structured objects (enables duplicate detection before rendering)
-    # 2026-06-12 news-curator 에이전트가 WebSearch로 출처 검증한 실데이터
+    # 2026-06-18 news-curator 에이전트가 WebSearch로 출처 검증한 실데이터 8건
     $rawNews = @(
         [PSCustomObject]@{
-            title = "마이크로소프트, MAI 모델 7종 동시 출시로 OpenAI 의존도 낮춘다"
-            description = "MS가 Build 2026에서 추론·코딩·이미지·음성·전사 분야의 자체 개발 MAI 모델 7종을 공개, 최대 10배 효율 향상을 주장하는 Frontier Tuning 기술도 함께 발표했다."
-            url = "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/"
-            source = "Microsoft AI News"; date = "2026-06-02"; priority = $true
+            title = "마이크로소프트, Build 2026에서 자체 개발 MAI 모델 7종 공개"
+            description = "MS가 OpenAI 의존 탈피를 선언하며 추론·코딩·이미지·음성·전사 등 7개 자체 모델을 Azure AI Foundry에 출시했다."
+            url = "https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/"
+            source = "Microsoft Official Blog"; date = "2026-06-02"; priority = $true
             category = "category-ai"; categoryLabel = "AI 모델"
         },
         [PSCustomObject]@{
-            title = "애플 WWDC 2026: 구글 Gemini 탑재 'Siri AI' 공개, iOS 27 발표"
-            description = "애플이 WWDC 2026에서 구글 Gemini 기반으로 완전히 재설계된 Siri AI를 발표하고, 경쟁 챗봇과의 연동 계획도 함께 공개했다."
-            url = "https://techcrunch.com/2026/06/09/wwdc-2026-everything-announced-on-siri-ai-os-27-apple-intelligence-and-more/"
-            source = "TechCrunch"; date = "2026-06-09"; priority = $true
+            title = "Anthropic, SEC에 IPO 초안(S-1) 기밀 제출... 기업가치 9,650억 달러"
+            description = "앤트로픽이 6월 1일 SEC에 기밀 S-1을 제출하며 2026년 최대 AI IPO 레이스에 합류했고, 상장 시점은 빠르면 10월로 거론된다."
+            url = "https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html"
+            source = "CNBC"; date = "2026-06-01"; priority = $true
+            category = "category-biz"; categoryLabel = "비즈니스"
+        },
+        [PSCustomObject]@{
+            title = "Claude Opus 4.8, AI 인텔리전스 인덱스 1위... 60점 벽 최초 돌파"
+            description = "앤트로픽의 Claude Opus 4.8이 Artificial Analysis Intelligence Index에서 61.4점으로 1위에 오르며 60점을 처음 돌파한 모델이 됐다."
+            url = "https://llm-stats.com/llm-updates"
+            source = "LLM Stats / Artificial Analysis"; date = "2026-05-27"; priority = $true
             category = "category-ai"; categoryLabel = "AI 모델"
         },
         [PSCustomObject]@{
-            title = "OpenAI, 비밀 S-1 SEC 제출…IPO 경쟁 본격화"
-            description = "OpenAI가 기업공개를 위해 SEC에 비밀 예비 S-1을 제출했으며, 852B 밸류에이션으로 2026년 하반기 상장을 검토 중이다."
-            url = "https://fortune.com/2026/06/09/openai-files-confidential-s-1-sec-ipo/"
-            source = "Fortune"; date = "2026-06-09"; priority = $false
-            category = "category-biz"; categoryLabel = "비즈니스"
+            title = "Google I/O 2026, Gemini 3.5 Flash 출시... 추론·코딩 성능 대폭 향상"
+            description = "구글이 I/O 2026에서 Gemini 3.5 Flash를 공개했으며 전작 대비 4배 빠른 속도와 76.2% Terminal-Bench 스코어를 기록했다."
+            url = "https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/"
+            source = "MarkTechPost"; date = "2026-05-20"; priority = $false
+            category = "category-ai"; categoryLabel = "AI 모델"
         },
         [PSCustomObject]@{
-            title = "Anthropic, 965B 밸류에이션으로 IPO 비밀 제출…OpenAI 첫 추월"
-            description = "Anthropic이 65B Series H 마감 직후 SEC에 S-1을 비밀 제출하며 OpenAI(852B)를 처음으로 기업가치에서 앞질렀고, 연환산 매출 47B을 공개했다."
-            url = "https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/"
-            source = "Fortune"; date = "2026-06-01"; priority = $false
-            category = "category-biz"; categoryLabel = "비즈니스"
-        },
-        [PSCustomObject]@{
-            title = "NVIDIA·SK하이닉스, AI 팩토리용 차세대 메모리 다년간 공동 개발 협약"
-            description = "양사가 Vera Rubin 슈퍼컴퓨터·RTX Spark PC·Jetson Thor 로봇 플랫폼용 메모리를 공동 개발하는 다년 기술 파트너십을 체결했다."
-            url = "https://nvidianews.nvidia.com/news/sk-hynix-ai-factory"
-            source = "NVIDIA Newsroom"; date = "2026-06-07"; priority = $false
+            title = "빅테크 4사, 2026년 AI 인프라 투자액 최대 6,650억 달러 전망"
+            description = "MS·아마존·구글·메타의 2026년 자본지출 합산이 전년(3,810억 달러) 대비 최대 74% 급증한 6,650억 달러에 달할 것으로 블룸버그가 추산했다."
+            url = "https://finance.yahoo.com/news/big-tech-set-to-spend-650-billion-in-2026-as-ai-investments-soar-163907630.html"
+            source = "Yahoo Finance / Bloomberg"; date = "2026-06-01"; priority = $false
             category = "category-infra"; categoryLabel = "인프라"
         },
         [PSCustomObject]@{
-            title = "마블, AI 인프라 수요 급증에 힘입어 S&P 500 편입 확정"
-            description = "AI 데이터센터 맞춤형 칩 수요 폭증을 배경으로 Marvell이 6월 22일부터 S&P 500에 공식 편입되며, 주가가 급등했다."
-            url = "https://www.fxleaders.com/news/2026/06/11/marvell-joins-sp-500-on-ai-infrastructure-surge/"
-            source = "FX Leaders"; date = "2026-06-11"; priority = $false
+            title = "CNCF, OpenTelemetry 정식 졸업... AI 에이전트 관측 표준으로 부상"
+            description = "CNCF가 OpenTelemetry Graduation을 발표하며 GenAI 시맨틱 컨벤션이 LLM 호출·에이전트·툴 실행 추적의 업계 표준으로 자리잡았다."
+            url = "https://thenewstack.io/opentelemetry-hits-general-availability/"
+            source = "The New Stack"; date = "2026-06-01"; priority = $false
+            category = "category-infra"; categoryLabel = "인프라"
+        },
+        [PSCustomObject]@{
+            title = "Q1 2026 글로벌 벤처 투자 3,000억 달러 역대 최고... OpenAI·앤트로픽 견인"
+            description = "2026년 1분기 전 세계 스타트업 투자가 3,000억 달러로 사상 최대를 기록했으며, OpenAI·앤트로픽·xAI·Waymo 4곳이 전체의 63%를 흡수했다."
+            url = "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/"
+            source = "Crunchbase News"; date = "2026-06-04"; priority = $false
+            category = "category-biz"; categoryLabel = "비즈니스"
+        },
+        [PSCustomObject]@{
+            title = "Crusoe, AI 데이터센터 계약 전력 5기가와트 육박... 파이프라인 40GW 상회"
+            description = "AI 특화 클라우드 Crusoe가 데이터센터·클라우드 합산 계약 전력 4.9GW를 달성했으며 전체 파이프라인은 40GW를 넘어섰다고 밝혔다."
+            url = "https://www.crusoe.ai/resources/newsroom/crusoes-contracted-ai-infrastructure-capacity-approaches-5-gigawatts-across-data-centers-and-cloud"
+            source = "Crusoe AI Newsroom"; date = "2026-06-09"; priority = $false
             category = "category-infra"; categoryLabel = "인프라"
         }
     )
