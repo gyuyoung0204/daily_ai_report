@@ -14,6 +14,10 @@ logs/**/*.log
 logs/**/*.txt
 *.log
 
+# 예외: v4 자가학습 자산은 버전관리 (회차/세션 간 메모리 지속)
+!logs/quality_scores.json
+!logs/lessons.md
+
 # Data cache (매일 변경되므로 제외)
 data/**/*.json
 data/news_cache.json
