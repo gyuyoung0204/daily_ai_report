@@ -10,7 +10,8 @@ try {
     if (-not $path) { exit 0 }
 
     $projectDir = $env:CLAUDE_PROJECT_DIR
-    if (-not $projectDir) { $projectDir = "C:\tmpfile\ai_report" }
+    # fallback: 훅 위치(.claude/hooks) 기준 저장소 루트 (이식성 - Issue #12)
+    if (-not $projectDir) { $projectDir = Split-Path -Parent (Split-Path -Parent $PSScriptRoot) }
     $logPath = Join-Path $projectDir "logs\digest_log.txt"
     $logDir = Split-Path $logPath
     if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
