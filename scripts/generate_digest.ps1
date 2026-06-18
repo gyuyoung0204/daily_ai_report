@@ -2,7 +2,8 @@
 # Features: Advanced TF-IDF duplicate detection, Email integration, Caching
 # PowerShell 5.0+ compatible
 
-$scriptDir = "C:\tmpfile\ai_report"
+# 저장소 루트를 스크립트 위치 기준 상대경로로 해석 (이식성 - Issue #12)
+$scriptDir = Split-Path -Parent $PSScriptRoot
 $OutputPath = "$scriptDir\daily_ai_digest.html"
 $LogPath = "$scriptDir\logs\digest_log.txt"
 $CachePath = "$scriptDir\data\news_cache.json"

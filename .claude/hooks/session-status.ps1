@@ -4,7 +4,8 @@
 
 try {
     $projectDir = $env:CLAUDE_PROJECT_DIR
-    if (-not $projectDir) { $projectDir = "C:\tmpfile\ai_report" }
+    # fallback: 훅 위치(.claude/hooks) 기준 저장소 루트 (이식성 - Issue #12)
+    if (-not $projectDir) { $projectDir = Split-Path -Parent (Split-Path -Parent $PSScriptRoot) }
 
     $lines = @()
     $lines += "[daily_ai_report] 세션 상태"
