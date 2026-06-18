@@ -8,10 +8,8 @@ daily_ai_digest.html
 output/
 dist/
 
-# Logs (로그 파일은 깃에 커밋하지 않음)
-logs/
-logs/**/*.log
-logs/**/*.txt
+# Logs (로그 파일은 깃에 커밋하지 않음) — logs/*로 둬야 아래 예외 negation이 동작
+logs/*
 *.log
 
 # 예외: v4 자가학습 자산은 버전관리 (회차/세션 간 메모리 지속)

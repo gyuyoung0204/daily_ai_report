@@ -1,0 +1,31 @@
+{
+  "history": [
+    {
+      "timestamp": "2026-06-18T16:15:00+09:00",
+      "iteration": 1,
+      "target": 90,
+      "total": 71.25,
+      "grade": "Working",
+      "quantitative_total": 70.0,
+      "qualitative_total": 75.0,
+      "dimensions": [
+        { "name": "기능 완성도", "weight": 0.25, "level": 2, "quantitative": 2, "qualitative": 2,
+          "evidence": "generate_digest.ps1 exit 0이나 $rawNews 8건 하드코딩 + 인사이트 섹션(133-151행) 하드코딩(Issue #13 open), 실 API/RSS 없음" },
+        { "name": "데이터 신뢰성·정확성", "weight": 0.20, "level": 3, "quantitative": 3, "qualitative": 3,
+          "evidence": "8건 신뢰출처(CNBC·MS·Crunchbase 등), 출처 표기율 8/8=100%, TF-IDF 중복제거 동작. 단 인사이트가 수집 뉴스와 불일치(Gemma4 환각, #13)" },
+        { "name": "견고성·에러 처리", "weight": 0.15, "level": 4, "quantitative": 4, "qualitative": 4,
+          "evidence": "try/catch 존재, C:\\tmpfile 하드코딩 0건(#12 해결), 종료코드 처리, 템플릿 부재 시 throw" },
+        { "name": "테스트·검증", "weight": 0.15, "level": 3, "quantitative": 3, "qualitative": 3,
+          "evidence": "test_duplicate_detection.ps1 통과, quality-evaluator 에이전트 + verify-digest 훅 존재·PASS 확인. 신규 자산 단위테스트는 미비" },
+        { "name": "자동화·운영", "weight": 0.10, "level": 2, "quantitative": 2, "qualitative": 2,
+          "evidence": "생성은 자동(스크립트)이나 뉴스 수집 수동(WebSearch 후 수기 반영), logs/metrics.json·aggregated_summary.json 부재, 스케줄 미가동" },
+        { "name": "문서 품질", "weight": 0.10, "level": 3, "quantitative": 3, "qualitative": 3,
+          "evidence": "SOUL/CLAUDE/README 역할 분리·SSOT 유지, 이메일 참조 정리 완료. v3/v4 하네스 내용 문서 반영 직전" },
+        { "name": "보안", "weight": 0.05, "level": 4, "quantitative": 4, "qualitative": 4,
+          "evidence": ".gitignore에 settings.local.json 포함, 추적 파일 내 ghp_ 토큰 0건(git grep)" }
+      ],
+      "lowest_dimensions": ["기능 완성도(Lv2, 25%)", "자동화·운영(Lv2, 10%)"],
+      "delegated_to": ["/issue-processor (Issue #13 인사이트 동적화)", "Issue #1 실 뉴스 API"]
+    }
+  ]
+}
