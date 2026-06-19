@@ -9,6 +9,7 @@ $LogPath = "$scriptDir\logs\digest_log.txt"
 $CachePath = "$scriptDir\data\news_cache.json"
 $TemplatePath = "$scriptDir\templates\digest_template.html"
 $DuplicateDetectionScript = "$scriptDir\scripts\duplicate_detection.ps1"
+$MetricsPath = "$scriptDir\logs\metrics.json"
 
 # Create log directory
 $logDir = Split-Path -Parent $LogPath
@@ -26,6 +27,9 @@ function Write-Log {
 }
 
 Write-Log "========== Daily AI/IT Digest Generation Started ==========" "INFO"
+
+# 성능 측정 시작 (Issue #10 자동화: 매 실행 시 metrics.json에 누적 — 자동화·운영 차원)
+$perfSw = [System.Diagnostics.Stopwatch]::StartNew()
 
 try {
     # Check template exists
@@ -187,6 +191,24 @@ try {
     }
     $cacheData | ConvertTo-Json -Depth 10 | Out-File -FilePath $CachePath -Encoding UTF8
     Write-Log "Cache updated" "INFO"
+
+    # 성능 메트릭 자동 누적 (자동화·운영 차원: metrics.json 자동 생성)
+    # PS5.1 ConvertTo-Json의 단일요소 배열 래핑 버그를 피하려 JSON 라인을 직접 조립한다.
+    $perfSw.Stop()
+    $htmlSizeKB = if (Test-Path $OutputPath) { [math]::Round((Get-Item $OutputPath).Length / 1KB, 1) } else { 0 }
+    $durationMs = $perfSw.ElapsedMilliseconds
+    $tsNow = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+    $metricLine = '{"timestamp":"' + $tsNow + '","duration_ms":' + $durationMs + ',"success":true,"news_count":' + $uniqueNews.Count + ',"output_size_kb":' + $htmlSizeKB + '}'
+    $existingInner = ''
+    if (Test-Path $MetricsPath) {
+        $rawMetrics = (Get-Content $MetricsPath -Raw -Encoding UTF8).Trim()
+        if ($rawMetrics.Length -gt 2 -and $rawMetrics.StartsWith('[') -and $rawMetrics.EndsWith(']')) {
+            $existingInner = $rawMetrics.Substring(1, $rawMetrics.Length - 2).Trim()
+        }
+    }
+    $metricsJson = if ($existingInner) { "[$existingInner,`n $metricLine]" } else { "[$metricLine]" }
+    [System.IO.File]::WriteAllText($MetricsPath, $metricsJson, (New-Object System.Text.UTF8Encoding($false)))
+    Write-Log "Metrics recorded: ${durationMs}ms / $($uniqueNews.Count) items / ${htmlSizeKB}KB" "INFO"
 
     Write-Log "========== Daily AI/IT Digest Generation Completed Successfully ==========" "INFO"
 }
